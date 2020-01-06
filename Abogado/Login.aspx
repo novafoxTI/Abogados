@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>lawyers</b>System</a>
+    <a href="../../index2.html"><b>lawyers</b>System 1.0</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
