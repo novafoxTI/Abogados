@@ -1212,6 +1212,30 @@
     });
   });
 </script>
+
+
+    <script>
+    $(function () {
+        bindDataTable(); // bind data table on first page load
+        // bind data table on every UpdatePanel refresh   
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(bindDataTable);
+    });
+
+    function bindDataTable() {
+
+        var table = $('#example1').DataTable({ retrieve: true, paging: false });
+
+        table.destroy();
+
+        $('#example1').DataTable({
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+        });
+    }
+</script>
+
+
 </body>
 </html>
 
