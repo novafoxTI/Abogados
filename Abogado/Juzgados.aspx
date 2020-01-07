@@ -729,7 +729,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-       <form class="form-horizontal">
+       <form class="form-horizontal"  id="form1" runat="server" autocomplete="off">
         
                   
         <div class="card-body">
@@ -737,68 +737,52 @@
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtNombre" placeholder="Ingresar nombre">
+                <asp:TextBox runat="server" type="text" class="form-control" id="TxtNombre" placeholder="Ingresar nombre"/>
             </div>
         </div>
 
- 
-
- 
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Calle</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtCalle" placeholder="Ingresar Calle">
+                <asp:TextBox runat="server" type="text" class="form-control" id="TxtCalle" placeholder="Ingresar Calle"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Número</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtNumero" placeholder="Ingresar número">
+               <asp:TextBox runat="server" type="text" class="form-control" id="TxtNumero" placeholder="Ingresar número"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Colonia</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtColonia" placeholder="Ingresar colonia">
+                <asp:TextBox runat="server" type="text" class="form-control" id="TxtColonia" placeholder="Ingresar colonia"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Codigo Postal</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal">
+                <asp:TextBox runat="server" type="text" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Ciudad</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtCiudad" placeholder="Ingresar ciudad">
+              <asp:TextBox runat="server" type="text" class="form-control" id="TxtCiudad" placeholder="Ingresar ciudad"/>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Municipio</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="TxtMunicipio" placeholder="Ingresar municipio">
+               <asp:TextBox runat="server" class="form-control" id="TxtMunicipio" placeholder="Ingresar municipio"/>
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="Txttelefono" placeholder="Ingresar telefono">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Celular</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="Txtcelular" placeholder="Ingresar celular">
-            </div>
-        </div>
 
 
 
@@ -809,8 +793,13 @@
         </div>
                 <!-- /.card-body -->
         <div class="card-footer">
-            <button type="submit" class="btn btn-info">Agregar</button>
-            <button type="submit" class="btn btn-default float-right">Cancelar</button>
+          
+            <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar" OnClick="BtnAgregarjuzgado_Click" />
+
+            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarjuzgado_Click"  Text="Cancelar" />
+           
+            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistajuzgados_Click"  Text="Lista Juzgados" />
+
         </div>
                 <!-- /.card-footer -->
         </form>

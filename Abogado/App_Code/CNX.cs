@@ -15,7 +15,7 @@ public class CNX
         {
             try
             {
-                using (SqlConnection cnSql = new SqlConnection("Data Source = 192.168.1.195; initial Catalog = ReclutamientoLennox; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework"))
+                using (SqlConnection cnSql = new SqlConnection("Data Source = DESKTOP-KJDJCFV; initial Catalog = ABOGADOS; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework"))
                 {
                     DataTable Dt;
                     SqlDataAdapter Da = new SqlDataAdapter();
