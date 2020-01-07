@@ -15,16 +15,21 @@ public partial class Login : System.Web.UI.Page
 
     }
 
-    protected void btnIngresar_Click(object sender, EventArgs e)
+    protected void BtnIngresar_Click(object sender, EventArgs e)
     {
         DataTable buscarU = new DataTable();
         buscarU = modelo.ObtenerDatoSicad("Select * from usuario where nombre= '" + usuario.Value + "' and password='" + pass.Value + "'");
 
         if (buscarU.Rows.Count > 0)
         {
-            Response.Redirect("Contact.aspx");
-        }else Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Oops', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
+            Response.Redirect("Clientes.aspx");
+        }
+        else {
 
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Oops', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
+            usuario.Value = "";
+            pass.Value = "";
+        }
     }
 
 

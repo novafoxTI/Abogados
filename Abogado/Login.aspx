@@ -19,23 +19,28 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+
+    <script>
+        
+    </script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>lawyers</b>System 1.0</a>
+    <a href=""><b>lawyers</b>System 1.0</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Ingresar usuario y contraseña</p>
 
-      <form runat="server" action="../../index3.html" method="post">
+      <form runat="server" autocomplete="off">
         <div class="input-group mb-3">
           <input type="text"  id="usuario" runat="server" placeholder="Ingresar Usuario">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
@@ -55,7 +60,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-              <asp:Button type="button" runat="server" class="btn btn-primary" id="btnIngresar" onClick="btnIngresar_Click"  Text="iniciar" />	
+              <asp:Button type="button" runat="server" class="btn btn-primary" id="BtnIngresar" onClick="BtnIngresar_Click"  Text="iniciar" />	
           </div>
           <!-- /.col -->
         </div>
