@@ -13,7 +13,7 @@ public class CNX
 {
     SqlConnection Conn;
     public  CNX() {
-        Conn = new SqlConnection(@"Data Source=BROWN;Initial Catalog=ABOGADOS; User id=admin;Password=123");
+        Conn = new SqlConnection(@"Data Source=DESKTOP-KJDJCFV;Initial Catalog=ABOGADOS; User id=admin;Password=123456");
         
     }
         public DataTable ObtenerDatoSicad(string comando)

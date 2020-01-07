@@ -18,7 +18,7 @@ public partial class Login : System.Web.UI.Page
     protected void BtnIngresar_Click(object sender, EventArgs e)
     {
         DataTable buscarU = new DataTable();
-        buscarU = modelo.ObtenerDatoSicad("Select * from usuario where nombre= '" + usuario.Value + "' and password='" + pass.Value + "'");
+        buscarU = modelo.ObtenerDatoSicad("Select * from usuario where email= '" + usuario.Value + "' and password='" + pass.Value + "'");
 
         if (buscarU.Rows.Count > 0)
         {
