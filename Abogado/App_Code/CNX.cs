@@ -11,11 +11,16 @@ using System.Net.Mail;
 /// </summary>
 public class CNX
 {
+    SqlConnection Conn;
+    public  CNX() {
+        Conn = new SqlConnection(@"Data Source=BROWN;Initial Catalog=ABOGADOS; User id=admin;Password=123456");
+        
+    }
         public DataTable ObtenerDatoSicad(string comando)
         {
             try
             {
-                using (SqlConnection cnSql = new SqlConnection("Data Source = 192.168.1.195; initial Catalog = ReclutamientoLennox; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework"))
+                using (SqlConnection cnSql = new SqlConnection("Data Source = localhost; initial Catalog = ABOGADOS; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework"))
                 {
                     DataTable Dt;
                     SqlDataAdapter Da = new SqlDataAdapter();

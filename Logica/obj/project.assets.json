@@ -26,19 +26,6 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "AccesoDatos/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Entidades": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/AccesoDatos.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/AccesoDatos.dll": {}
-        }
-      },
       "Entidades/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -195,11 +182,6 @@
         "netstandard.library.nuspec"
       ]
     },
-    "AccesoDatos/1.0.0": {
-      "type": "project",
-      "path": "../AccesoDatos/AccesoDatos.csproj",
-      "msbuildProject": "../AccesoDatos/AccesoDatos.csproj"
-    },
     "Entidades/1.0.0": {
       "type": "project",
       "path": "../Entidades/Entidades.csproj",
@@ -208,7 +190,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "AccesoDatos >= 1.0.0",
       "Entidades >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
@@ -243,9 +224,6 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Ronald\\Documents\\Abogados\\AccesoDatos\\AccesoDatos.csproj": {
-              "projectPath": "C:\\Users\\Ronald\\Documents\\Abogados\\AccesoDatos\\AccesoDatos.csproj"
-            },
             "C:\\Users\\Ronald\\Documents\\Abogados\\Entidades\\Entidades.csproj": {
               "projectPath": "C:\\Users\\Ronald\\Documents\\Abogados\\Entidades\\Entidades.csproj"
             }

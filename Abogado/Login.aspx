@@ -8,7 +8,7 @@
   <title>AdminLTE 3 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -30,9 +30,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Ingresar usuario y contraseña</p>
 
-      <form action="../../index3.html" method="post">
+      <form runat="server" action="../../index3.html" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Ingresar email">
+          <input type="text"  id="usuario" runat="server" placeholder="Ingresar Usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Ingresa la contraseña">
+          <input type="password" id="pass"  runat="server" placeholder="Ingresa la contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -55,7 +55,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+              <asp:Button type="button" runat="server" class="btn btn-primary" id="btnIngresar" onClick="btnIngresar_Click"  Text="iniciar" />	
           </div>
           <!-- /.col -->
         </div>
