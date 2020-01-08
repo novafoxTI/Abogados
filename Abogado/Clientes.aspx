@@ -728,7 +728,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-       <form class="form-horizontal">
+       <form class="form-horizontal" runat="server" id="form1">
         
                   
         <div class="card-body">
@@ -840,8 +840,12 @@
         </div>
                 <!-- /.card-body -->
         <div class="card-footer">
-            <button type="submit" class="btn btn-info">Agregar</button>
-            <button type="submit" class="btn btn-default float-right">Cancelar</button>
+             <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar" OnClick="BtnAgregarCliente_Click" />
+
+            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />
+           
+            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Clientes" />
+
         </div>
                 <!-- /.card-footer -->
         </form>

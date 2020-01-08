@@ -82,11 +82,7 @@ public partial class Juzgados : System.Web.UI.Page
 
     }
 
-
-    
-
-
-            protected void BtnRegresarlistajuzgados_Click(object sender, EventArgs e)
+   protected void BtnRegresarlistajuzgados_Click(object sender, EventArgs e)
     {
         Response.Redirect("juzgadosver.aspx");
 

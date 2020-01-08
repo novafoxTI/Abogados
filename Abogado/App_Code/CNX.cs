@@ -13,7 +13,7 @@ public class CNX
 {
     SqlConnection Conn;
     public  CNX() {
-        Conn = new SqlConnection(@"Data Source=DESKTOP-KJDJCFV;Initial Catalog=ABOGADOS; User id=admin;Password=123456");
+        Conn = new SqlConnection(@"Data Source=BROWN;Initial Catalog=ABOGADOS; User id=admin;Password=123");
         
     }
         public DataTable ObtenerDatoSicad(string comando)
@@ -21,7 +21,7 @@ public class CNX
             try
             {
 
-                using (SqlConnection cnSql = new SqlConnection("Data Source = DESKTOP-KJDJCFV; initial Catalog = ABOGADOS; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework"))
+                using (SqlConnection cnSql = new SqlConnection("Data Source = BROWN; initial Catalog = ABOGADOS; user = admin; password = 123; MultipleActiveResultSets = True; App = EntityFramework"))
 
          
                 {
