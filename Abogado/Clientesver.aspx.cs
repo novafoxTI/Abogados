@@ -7,17 +7,18 @@ using System.Web.UI.WebControls;
 
 public partial class Clientesver : System.Web.UI.Page
 {
+  
     private CNX conn = new CNX();
-    string editar;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (!IsPostBack)
         {
             try
             {
 
-                DtgClientes.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
-                DtgClientes.DataBind();
+                DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
+                DtgJuzgados.DataBind();
 
             }
 
@@ -27,12 +28,35 @@ public partial class Clientesver : System.Web.UI.Page
             }
 
         }
+
     }
 
-    protected void btnAgregarClientes_Click(object sender, EventArgs e)
+    protected void btnEliminarJuzgado_Click(object sender, EventArgs e)
     {
 
-        Response.Redirect("clientes.aspx");
+        LinkButton btn = (LinkButton)(sender);
+
+        conn.ObtenerDatoSicad("delete from Cliente where IDCliente = '" + btn.CommandArgument + "'");
+
+        DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
+        DtgJuzgados.DataBind();
+
+
+    }
+
+
+    protected void btnEditarJuzgado_Click(object sender, EventArgs e)
+    {
+        LinkButton btn = (LinkButton)(sender);
+        Response.Redirect("Clientes.aspx?IDCliente= " + btn.CommandArgument + "");
+
+
+    }
+
+    protected void btnAgregarJuzgado_Click(object sender, EventArgs e)
+    {
+
+        Response.Redirect("Clientes.aspx");
 
 
     }

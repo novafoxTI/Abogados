@@ -778,10 +778,9 @@
 </table>
         </FooterTemplate>
     </asp:Repeater>
+
+
          </form>
-     
-
-
             </div>
             <!-- /.card-body -->
           </div>

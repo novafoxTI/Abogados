@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Clientesver.aspx.cs" Inherits="Clientesver" %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -705,12 +706,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Catálogo de clientes</h1>
+            <h1>Catálogo de Clientes</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Menu</a></li>
-              <li class="breadcrumb-item active">Catalogoclientes</li>
+              <li class="breadcrumb-item active">Catalogocliente</li>
             </ol>
           </div>
         </div>
@@ -723,35 +724,35 @@
         <div class="col-12">
           
           <!-- /.card -->
-            <form id="form1" runat="server" autocomplete="off">
+                 <form id="form1" runat="server" autocomplete="off">
           <div class="card">
-              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Clientes" ID="btnAgregarClientes" OnClick="btnAgregarClientes_Click" />
+
+               
+              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Cliente" ID="btnAgregarJuzgado" OnClick="btnAgregarJuzgado_Click" />
+
             <div class="card-header">
-              <h3 class="card-title">Listado de clientes</h3>
+              <h3 class="card-title">Listado de Clientes</h3>
+                    
             </div>
             <!-- /.card-header -->
-            
-              <div class="card-body">
-              
-        <asp:Repeater runat="server" ID="DtgClientes">
+            <div class="card-body">
+                
+               
+
+<asp:Repeater runat="server" ID="DtgJuzgados">
         <HeaderTemplate>
             <table id="example1" class=" table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th style="width: 5%">Nombre</th>
-                        <th style="width: 5%">Apellido Paterno</th>
-                        <th style="width: 5%">Apellido Materno</th>
-                        <th style="width: 5%">Curp</th>
-                        <th style="width: 5%">RFC</th>
-                        <th style="width: 5%">Fecha Ingreso</th>
                         <th style="width: 5%">Calle</th>
-                        <th style="width: 5%">Número</th>
+                        <th style="width: 5%">Numero</th>
                         <th style="width: 5%">Colonia</th>
-                        <th style="width: 5%">Código Postal</th>
+                        <th style="width: 5%">CP</th>
                         <th style="width: 5%">Ciudad</th>
                         <th style="width: 5%">Municipio</th>
-                        <th style="width: 5%">Telefono</th>
-                        <th style="width: 5%">Celular</th>
+                        <th style="width: 5%"></th>
+                         <th style="width: 5%"></th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo">
@@ -759,38 +760,32 @@
         <ItemTemplate>
             <tr data-id="<%# Eval("IDCliente")%>">
                 <td><%# Eval("nombre")%></td>
-                <td><%# Eval("apellidop")%></td>
-                <td><%# Eval("apellidom")%></td>
-                <td><%# Eval("curp")%></td>
-                <td><%# Eval("rfc")%></td>
-                <td><%# Eval("fechaingreso")%></td>
                 <td><%# Eval("calle")%></td>
                 <td><%# Eval("numero")%></td>
                 <td><%# Eval("colonia")%></td>
-                <td><%# Eval("codigopostal")%></td>
+                <td><%# Eval("cp")%></td>
                 <td><%# Eval("ciudad")%></td>
                 <td><%# Eval("municipio")%></td>
-                <td><%# Eval("telefono")%></td>
-                <td><%# Eval("celular")%></td>
                  <td>
-                <%--<asp:LinkButton runat="server" ID="btnEditarJuzgado"  OnClick="btnEditarJuzgado_Click" CommandArgument='<%# Eval("IDJuzgado") %>'>Editar</asp:LinkButton>--%>
+                <asp:LinkButton runat="server" ID="btnEditarJuzgado"  OnClick="btnEditarJuzgado_Click" CommandArgument='<%# Eval("IDCliente") %>'>Editar</asp:LinkButton>
                 </td>
                 <td>
-                <%--<asp:LinkButton runat="server" ID="btnEliminarJuzgado"  OnClick="btnEliminarJuzgado_Click" CommandArgument='<%# Eval("IDJuzgado") %>'>Eliminar</asp:LinkButton>--%>
+                <asp:LinkButton runat="server" ID="btnEliminarJuzgado"  OnClick="btnEliminarJuzgado_Click" CommandArgument='<%# Eval("IDCliente") %>'>Eliminar</asp:LinkButton>
                 </td>
             </tr>
         </ItemTemplate>
         <FooterTemplate>
             </tbody>
-        </table>
+</table>
         </FooterTemplate>
     </asp:Repeater>
+
+
+         </form>
             </div>
-              
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          </form>
         </div>
         <!-- /.col -->
       </div>
@@ -866,4 +861,3 @@
 
 </body>
 </html>
-
