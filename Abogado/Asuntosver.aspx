@@ -728,10 +728,10 @@
           <div class="card">
 
                
-              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Cliente" ID="btnAgregarJuzgado" OnClick="btnAgregarJuzgado_Click" />
+              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Asuntos" ID="btnAgregarJuzgado" OnClick="btnAgregarJuzgado_Click" />
 
             <div class="card-header">
-              <h3 class="card-title">Listado de Clientes</h3>
+              <h3 class="card-title">Listado de Asuntos</h3>
                     
             </div>
             <!-- /.card-header -->

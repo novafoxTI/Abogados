@@ -198,12 +198,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Clientes</h1>
+            <h1>Asuntos</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Menu</a></li>
-              <li class="breadcrumb-item active">AgregarClientes</li>
+              <li class="breadcrumb-item active">AgregarAsuntos</li>
             </ol>
           </div>
         </div>
@@ -218,7 +218,7 @@
             <div class="card card-info">
 
               <div class="card-header">
-                <h3 class="card-title">Agregar Clientes</h3>
+                <h3 class="card-title">Agregar Asuntos</h3>
               </div>
 
 
@@ -232,90 +232,6 @@
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Apellido Paterno</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtApellidoPaterno" placeholder="Ingresar apellido paterno"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Apellido Materno</label>
-            <div class="col-sm-10">
-                <asp:TextBox runat="server" type="text" class="form-control" id="TxtApellidoMaterno" placeholder="Ingresar apellido materno"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Curp</label>
-            <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCurp" placeholder="Ingresar CURP"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">RFC</label>
-            <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="TxtRfc" placeholder="Ingresar RFC"/>
-            </div>
-        </div>
-
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Calle</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCalle" placeholder="Ingresar Calle"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Número</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" class="form-control" id="TxtNumero" placeholder="Ingresar número"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Colonia</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" class="form-control" id="TxtColonia" placeholder="Ingresar colonia"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Codigo Postal</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Ciudad</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCiudad" placeholder="Ingresar ciudad"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Municipio</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtMunicipio" placeholder="Ingresar municipio"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
-            <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="Txttelefono" placeholder="Ingresar telefono"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Celular</label>
-            <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="Txtcelular" placeholder="Ingresar celular"/>
-            </div>
-        </div>
 
         <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
@@ -329,7 +245,7 @@
 
             <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />
            
-            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Clientes" />
+            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Asuntos" />
 
         </div>
 

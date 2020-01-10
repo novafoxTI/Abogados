@@ -48,7 +48,7 @@ public partial class Asuntosver : System.Web.UI.Page
     protected void btnEditarJuzgado_Click(object sender, EventArgs e)
     {
         LinkButton btn = (LinkButton)(sender);
-        Response.Redirect("Clientes.aspx?IDCliente= " + btn.CommandArgument + "");
+        Response.Redirect("Asuntos.aspx?IDAsunto= " + btn.CommandArgument + "");
 
 
     }
@@ -56,7 +56,7 @@ public partial class Asuntosver : System.Web.UI.Page
     protected void btnAgregarJuzgado_Click(object sender, EventArgs e)
     {
 
-        Response.Redirect("Clientes.aspx");
+        Response.Redirect("Asuntos.aspx");
 
 
     }
