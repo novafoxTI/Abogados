@@ -6,7 +6,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>Trámites</title>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -739,7 +741,7 @@
                 
                
 
-<asp:Repeater runat="server" ID="DtgJuzgados">
+<asp:Repeater runat="server" ID="DtgTramites">
         <HeaderTemplate>
             <table id="example1" class=" table table-bordered table-striped">
                 <thead>
@@ -766,16 +768,18 @@
                 <td><%# Eval("asunto")%></td>
                 <td><%# Eval("costo")%></td>
                 <td><%# Eval("tipopago")%></td>
-          <td><%# Eval("estatus")%></td>
+                <td><%# Eval("estatus")%></td>
+          
                  <td>
                 <asp:LinkButton runat="server" ID="btnEditarJuzgado"  OnClick="btnEditarJuzgado_Click" CommandArgument='<%# Eval("IDTramite") %>'>Editar</asp:LinkButton>
                 </td>
                 <td>
-                <asp:LinkButton runat="server" ID="btnEliminarJuzgado"  OnClick="btnEliminarJuzgado_Click" CommandArgument='<%# Eval("IDTramite") %>'>Eliminar</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="btnPagos"  OnClick="btnPagos_Click" CommandArgument='<%# Eval("IDTramite") %>'>Pagos</asp:LinkButton>
+                
                 </td>
 
                   <td>
-                <asp:LinkButton runat="server" ID="btnPagos"  OnClick="btnPagos_Click" CommandArgument='<%# Eval("IDTramite") %>'>Pagos</asp:LinkButton>
+                <asp:LinkButton runat="server" ID="btnEliminarJuzgado"  OnClick="btnEliminarTramite_Click" CommandArgument='<%# Eval("IDTramite") %>'>Eliminar</asp:LinkButton>
                 </td>
 
             </tr>

@@ -7,7 +7,8 @@
   <title>AdminLTE 3 | General Form Elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -222,97 +223,97 @@
 
 
 
-       <form class="form-horizontal" runat="server" id="form1">
+       <form class="form-horizontal" runat="server" id="form1" autocomplete="off">
         <div class="card-body">
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre:</label>
+            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Nombre:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" class="form-control" id="TxtNombre" placeholder="Ingresar nombre"/>
+                 <asp:TextBox runat="server" type="text" maxlength="30" class="form-control" id="TxtNombre" placeholder="Ingresar nombre"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Apellido Paterno</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Apellido Paterno:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtApellidoPaterno" placeholder="Ingresar apellido paterno"/>
+                 <asp:TextBox runat="server" maxlength="30" type="text" class="form-control" id="TxtApellidoPaterno" placeholder="Ingresar apellido paterno"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Apellido Materno</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Apellido Materno:</label>
             <div class="col-sm-10">
-                <asp:TextBox runat="server" type="text" class="form-control" id="TxtApellidoMaterno" placeholder="Ingresar apellido materno"/>
+                <asp:TextBox runat="server" maxlength="30" type="text" class="form-control" id="TxtApellidoMaterno" placeholder="Ingresar apellido materno"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Curp</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label"><a href="https://www.gob.mx/curp/">Curp</a></label>
             <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCurp" placeholder="Ingresar CURP"/>
+                <asp:TextBox runat="server" maxlength="18"  type="text" class="form-control" id="TxtCurp" placeholder="Ingresar CURP"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">RFC</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">RFC:</label>
             <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="TxtRfc" placeholder="Ingresar RFC"/>
+                <asp:TextBox runat="server"  maxlength="13" type="text" class="form-control" id="TxtRfc" placeholder="Ingresar RFC"/>
             </div>
         </div>
 
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Calle</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Calle:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCalle" placeholder="Ingresar Calle"/>
+                 <asp:TextBox runat="server" maxlength="30" type="text" class="form-control" id="TxtCalle" placeholder="Ingresar Calle"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Número</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Número:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" class="form-control" id="TxtNumero" placeholder="Ingresar número"/>
+                 <asp:TextBox runat="server" maxlength="4" type="number" class="form-control" id="TxtNumero" placeholder="Ingresar número"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Colonia</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Colonia:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" class="form-control" id="TxtColonia" placeholder="Ingresar colonia"/>
+                 <asp:TextBox runat="server" maxlength="20" type="text" class="form-control" id="TxtColonia" placeholder="Ingresar colonia"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Codigo Postal</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Codigo Postal:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal"/>
+                 <asp:TextBox runat="server" maxlength="5" type="number" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Ciudad</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Ciudad:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtCiudad" placeholder="Ingresar ciudad"/>
+                 <asp:TextBox runat="server" maxlength="30" type="text" class="form-control" id="TxtCiudad" placeholder="Ingresar ciudad"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Municipio</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Municipio:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtMunicipio" placeholder="Ingresar municipio"/>
+                 <asp:TextBox runat="server" maxlength="20" type="text" class="form-control" id="TxtMunicipio" placeholder="Ingresar municipio"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Teléfono:</label>
             <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="Txttelefono" placeholder="Ingresar telefono"/>
+                <asp:TextBox runat="server"  type="number" maxlength="10" class="form-control" id="Txttelefono" placeholder="Ingresar telefono"/>
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Celular</label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Celular:</label>
             <div class="col-sm-10">
-                <asp:TextBox runat="server"  type="text" class="form-control" id="Txtcelular" placeholder="Ingresar celular"/>
+                <asp:TextBox runat="server"  type="number" maxlength="10" class="form-control" id="Txtcelular" placeholder="Ingresar celular"/>
             </div>
         </div>
 
@@ -326,9 +327,9 @@
             
             <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar" OnClick="BtnAgregarCliente_Click" />
 
-            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />
+            <%--<asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />--%>
            
-            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Clientes" />
+            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Clientes" />
 
         </div>
 
@@ -343,10 +344,8 @@
   </div>
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.2-pre
+      <b>Version</b> 
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
   </footer>
   <aside class="control-sidebar control-sidebar-dark">
   </aside>

@@ -23,7 +23,7 @@ public partial class Juzgadosver : System.Web.UI.Page
                    
             catch (Exception ex)
         {
-
+                Response.Write(ex.Message);
         }
 
     }
@@ -34,11 +34,19 @@ public partial class Juzgadosver : System.Web.UI.Page
     {
 
         LinkButton btn = (LinkButton)(sender);
+        try
+        {
+            conn.ObtenerDatoSicad("delete from Juzgados where IDJuzgado = '" + btn.CommandArgument + "'");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se eliminó exitosamente', '', 'success') </script>", false);
+            DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Juzgados");
+            DtgJuzgados.DataBind();
+        }
+        catch (Exception ex)
+        {
 
-        conn.ObtenerDatoSicad("delete from Juzgados where IDJuzgado = '" + btn.CommandArgument + "'");
-
-        DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Juzgados");
-        DtgJuzgados.DataBind();
+            Response.Write(ex.Message);
+        }
+        
 
     
     }

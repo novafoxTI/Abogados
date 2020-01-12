@@ -24,7 +24,7 @@ public partial class Clientesver : System.Web.UI.Page
 
             catch (Exception ex)
             {
-
+                Response.Write(ex.Message);
             }
 
         }
@@ -33,15 +33,21 @@ public partial class Clientesver : System.Web.UI.Page
 
     protected void btnEliminarJuzgado_Click(object sender, EventArgs e)
     {
+        try
+        {
 
-        LinkButton btn = (LinkButton)(sender);
+            LinkButton btn = (LinkButton)(sender);
 
-        conn.ObtenerDatoSicad("delete from Cliente where IDCliente = '" + btn.CommandArgument + "'");
+            conn.ObtenerDatoSicad("delete from Cliente where IDCliente = '" + btn.CommandArgument + "'");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se eliminó exitosamente', '', 'success') </script>", false);
+            DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
+            DtgJuzgados.DataBind();
 
-        DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
-        DtgJuzgados.DataBind();
-
-
+        }
+        catch ( Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
     }
 
 
@@ -50,15 +56,11 @@ public partial class Clientesver : System.Web.UI.Page
         LinkButton btn = (LinkButton)(sender);
         Response.Redirect("Clientes.aspx?IDCliente= " + btn.CommandArgument + "");
 
-
     }
 
     protected void btnAgregarJuzgado_Click(object sender, EventArgs e)
     {
-
         Response.Redirect("Clientes.aspx");
-
-
     }
 
 }

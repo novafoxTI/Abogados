@@ -13,25 +13,35 @@ public partial class Asuntos : System.Web.UI.Page
     string editar;
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        DataTable dtbuscarid = conn.ObtenerDatoSicad("SELECT * From Asunto WHERE IDAsunto ='" + Request.QueryString["IDAsunto"] + "'");
-
-        if (dtbuscarid.Rows.Count > 0)
+        if (!IsPostBack)
         {
+            try
+            {
+                DataTable dtbuscarid = conn.ObtenerDatoSicad("SELECT * From Asunto WHERE IDAsunto ='" + Request.QueryString["IDAsunto"] + "'");
 
-            editar = "Editar";
-            DataRow row = dtbuscarid.Rows[0];
-            TxtNombre.Text = row["asunto"].ToString();
-        
-            Session["editar"] = editar;
+                if (dtbuscarid.Rows.Count > 0)
+                {
 
+                    editar = "Editar";
+                    DataRow row = dtbuscarid.Rows[0];
+                    TxtNombre.Text = row["asunto"].ToString();
+
+                    Session["editar"] = editar;
+
+                }
+                else
+                {
+                    editar = "Agregar";
+                    Session["editar"] = editar;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write(ex.Message);
+            }
         }
-        else
-        {
-            editar = "Agregar";
-            Session["editar"] = editar;
-        }
-
     }
 
     protected void BtnAgregarCliente_Click(object sender, EventArgs e)
@@ -39,19 +49,24 @@ public partial class Asuntos : System.Web.UI.Page
         if (Session["editar"].ToString() == "Editar")
         {
             conn.ObtenerDatoSicad("Update   Asunto set asunto='" + TxtNombre.Text + "' where  IDAsunto ='" + Request.QueryString["IDAsunto"] + "'");
-
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se actualizó exitosamente', 'Ya se encuentra disponible en la lista', 'success') </script>", false);
             TxtNombre.Text = "";
 
             TxtNombre.Focus();
         }
         else
         {
-            conn.ObtenerDatoSicad("INSERT INTO   Asunto(asunto) VALUES('" + TxtNombre.Text + "')");
-
-            TxtNombre.Text = "";
-        
-            TxtNombre.Focus();
-
+            if (TxtNombre.Text.Trim() == "")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Debe ingresar un nombre', 'warning') </script>", false);
+            }
+            else
+            {
+                conn.ObtenerDatoSicad("INSERT INTO   Asunto(asunto) VALUES('" + TxtNombre.Text + "')");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se agregó exitosamente', 'Ya se encuentra disponible en la lista', 'success') </script>", false);
+                TxtNombre.Text = "";
+                TxtNombre.Focus();
+            }
         }
     }
 
@@ -59,7 +74,7 @@ public partial class Asuntos : System.Web.UI.Page
     {
 
         TxtNombre.Text = "";
-   
+
         TxtNombre.Focus();
 
     }

@@ -6,7 +6,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>Pagos</title>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -728,7 +730,7 @@
           <div class="card">
 
                
-              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Pago" ID="btnAgregarJuzgado" OnClick="btnAgregarJuzgado_Click" />
+              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Pago" ID="btnAgregarPago" OnClick="btnAgregarPago_Click" />
 
 
 
@@ -741,27 +743,27 @@
                 
     <br /> 
                   <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Cliente:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtCliente" placeholder="Ingresar Costo"/>
+                 <asp:TextBox runat="server"  type="text" Enabled="false" class="form-control" id="TxtCliente" placeholder="Ingresar Costo"/>
             </div>
         </div>
 
                   <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Asunto:</label>
+            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Asunto:</label>
             <div class="col-sm-10">
                  <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtAsunto" placeholder="Ingresar Costo"/>
             </div>
         </div>
 
                               <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Inicio:</label>
+            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Fecha de Inicio:</label>
             <div class="col-sm-10">
                  <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtFechaInicio" placeholder="Ingresar Costo"/>
             </div>
         </div>
                                             <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Término:</label>
+            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Fecha de Término:</label>
             <div class="col-sm-10">
                  <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtFechaTermino" placeholder="Ingresar Costo"/>
             </div>

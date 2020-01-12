@@ -7,6 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 3 | General Form Elements</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -224,14 +225,15 @@
 
 
 
-       <form class="form-horizontal" runat="server" id="form1">
+       <form class="form-horizontal" runat="server" id="form1" autocomplete="off">
         <div class="card-body">
 
                  <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Cliente:</label>
             <div class="col-sm-10">
                         <asp:DropDownList ID="CmbCliente"  class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
                             AppendDataBoundItems="true">
+                            <asp:ListItem Value="-1">-Seleccionar-</asp:ListItem>
                         </asp:DropDownList>
                                </div>
         </div>
@@ -239,17 +241,18 @@
 
 
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Asunto:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Asunto:</label>
             <div class="col-sm-10">
                         <asp:DropDownList ID="CmbAsunto" class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
                             AppendDataBoundItems="true">
+                            <asp:ListItem Value="-1">-Seleccionar-</asp:ListItem>
                         </asp:DropDownList>
                   </div>
         </div>
 
 
         <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Inicio:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Fecha de Inicio:</label>
             <div class="col-sm-10">
                  <asp:TextBox runat="server" type="date" class="form-control" id="TxtFechaInicio" placeholder="Ingresar Fecha"/>
             </div>
@@ -257,7 +260,7 @@
 
 
                   <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Termino:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Fecha de Termino:</label>
             <div class="col-sm-10">
                  <asp:TextBox runat="server" type="date" class="form-control" id="TxtFechaTermino" placeholder="Ingresar Fecha"/>
             </div>
@@ -265,19 +268,19 @@
 
 
                          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Costo:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Costo:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="numero" class="form-control" id="TxtCosto" placeholder="Ingresar Costo"/>
+                 <asp:TextBox runat="server"  maxlength="7" type="numero" class="form-control" id="TxtCosto" placeholder="Ingresar Costo"/>
             </div>
         </div>
 
 
                              <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Tipo de pago:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Tipo de pago:</label>
             <div class="col-sm-10">
                         <asp:DropDownList ID="CmbTipoPago" class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
                             AppendDataBoundItems="true">
-                                       <asp:ListItem Value="-1">-Selecciona-</asp:ListItem>
+                                       <asp:ListItem Value="-1">-Seleccionar-</asp:ListItem>
                             <asp:ListItem Value="Contado">Contado</asp:ListItem>
                             <asp:ListItem Value="Credito">Crédito</asp:ListItem>
                         </asp:DropDownList>
@@ -285,10 +288,11 @@
         </div>
 
                  <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Estatus:</label>
+            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Estatus:</label>
             <div class="col-sm-10">
                         <asp:DropDownList ID="CmbEstatus" class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
                             AppendDataBoundItems="true">
+                            
                                 <asp:ListItem Value="Pendiente">Pendiente</asp:ListItem>
                             <asp:ListItem Value="Terminado">Terminado</asp:ListItem>
                         </asp:DropDownList>
@@ -304,11 +308,11 @@
        
         <div class="card-footer">
             
-            <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar" OnClick="BtnAgregarCliente_Click" />
+            <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar" OnClick="BtnAgregarTramite_Click" />
 
-            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />
+            <%--<asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />--%>
            
-            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Asuntos" />
+            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaTramite_Click"  Text="Lista Tramites" />
 
         </div>
 

@@ -76,7 +76,7 @@ public partial class PagosVer : System.Web.UI.Page
 
     }
 
-    protected void btnAgregarJuzgado_Click(object sender, EventArgs e)
+    protected void btnAgregarPago_Click(object sender, EventArgs e)
     {
 
         Response.Redirect("Tramites.aspx");

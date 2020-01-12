@@ -6,9 +6,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 3 | General Form Elements</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -227,8 +231,14 @@
         <div class="card-body">
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre:</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" class="form-control" id="TxtNombre" placeholder="Ingresar nombre"/>
+            
+            <div class="col-sm-8">
+                 <asp:TextBox runat="server"  type="text" class="form-control" id="TxtNombre" placeholder="Ingresar nombre"/>
+                <br />
+                
+            </div >
+            <div class="col-sm-2">
+                 <asp:Button runat="server" class="btn btn-info  float-left" Text="Agregar" OnClick="BtnAgregarCliente_Click" />
             </div>
         </div>
 
@@ -241,11 +251,11 @@
        
         <div class="card-footer">
             
-            <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar" OnClick="BtnAgregarCliente_Click" />
-
-            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />
            
-            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Asuntos" />
+
+            <%--<asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarCliente_Click"  Text="Cancelar" />--%>
+           
+            <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Asuntos" />
 
         </div>
 
@@ -260,10 +270,9 @@
   </div>
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.2-pre
+      <b>Version</b>
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+   
   </footer>
   <aside class="control-sidebar control-sidebar-dark">
   </aside>

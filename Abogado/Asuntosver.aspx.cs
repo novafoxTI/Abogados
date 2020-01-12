@@ -35,11 +35,19 @@ public partial class Asuntosver : System.Web.UI.Page
     {
 
         LinkButton btn = (LinkButton)(sender);
+        try
+        {
+            conn.ObtenerDatoSicad("delete from Asunto where IDAsunto = '" + btn.CommandArgument + "'");
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se eliminó exitosamente', '', 'success') </script>", false);
+            DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Asunto order by asunto");
+            DtgJuzgados.DataBind();
+        }
+        catch (Exception ex)
+        {
 
-        conn.ObtenerDatoSicad("delete from Asunto where IDAsunto = '" + btn.CommandArgument + "'");
-
-        DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Asunto order by asunto");
-        DtgJuzgados.DataBind();
+            Response.Write(ex.Message);
+        }
+       
 
 
     }

@@ -25,8 +25,7 @@ public partial class Login : System.Web.UI.Page
             Response.Redirect("Clientes.aspx");
         }
         else {
-
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Oops', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
+             Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Oops', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
             usuario.Value = "";
             pass.Value = "";
         }
