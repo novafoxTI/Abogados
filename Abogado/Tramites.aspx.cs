@@ -15,7 +15,7 @@ public partial class Tramites : System.Web.UI.Page
 
         CmbCliente.DataValueField = "IDCliente";
         CmbCliente.DataTextField = "nombre";
-        CmbCliente.DataSource = conn.ObtenerDatoSicad("SELECT * FROM Cliente");
+        CmbCliente.DataSource = conn.ObtenerDatoSicad("SELECT IDCliente,nombre + ' ' + apellidopaterno + ' ' + apellidomaterno AS nombre, curp, rfc, calle, numero, colonia, cp, municipio, ciudad, telefono, celular FROM Cliente");
         CmbCliente.DataBind();
 
         CmbAsunto.DataValueField = "IDAsunto";
@@ -28,8 +28,7 @@ public partial class Tramites : System.Web.UI.Page
     protected void BtnAgregarCliente_Click(object sender, EventArgs e)
     {
 
-        conn.ObtenerDatoSicad("INSERT INTO   Tramites( IDCliente, IDAsunto, fechainicio, fechatermino, costo, tipopago) VALUES('" + CmbCliente.SelectedValue + "', '" + CmbAsunto.SelectedValue + "', '" + TxtFechaInicio.Text + "', '" + TxtFechaTermino.Text + "', '" + TxtCosto.Text + "', '" + CmbTipoPago.SelectedValue + "')");
-
+        conn.ObtenerDatoSicad("INSERT INTO   Tramites( IDCliente, IDAsunto, fechainicio, fechatermino, costo, tipopago,estatus) VALUES('" + CmbCliente.SelectedValue + "', '" + CmbAsunto.SelectedValue + "', '" + TxtFechaInicio.Text + "', '" + TxtFechaTermino.Text + "', '" + TxtCosto.Text + "', '" + CmbTipoPago.SelectedValue + "', '" + CmbEstatus.SelectedValue + "')");
         Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Oops', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
 
 

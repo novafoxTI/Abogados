@@ -230,7 +230,7 @@
                  <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente:</label>
             <div class="col-sm-10">
-                        <asp:DropDownList ID="CmbCliente" class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
+                        <asp:DropDownList ID="CmbCliente"  class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
                             AppendDataBoundItems="true">
                         </asp:DropDownList>
                                </div>
@@ -284,7 +284,17 @@
                                </div>
         </div>
 
-
+                 <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Estatus:</label>
+            <div class="col-sm-10">
+                        <asp:DropDownList ID="CmbEstatus" class="input-form-edit" CssClass="browser-default custom-select" Font-Names="area" runat="server"
+                            AppendDataBoundItems="true">
+                                <asp:ListItem Value="Pendiente">Pendiente</asp:ListItem>
+                            <asp:ListItem Value="Terminado">Terminado</asp:ListItem>
+                        </asp:DropDownList>
+                   
+                  </div>
+        </div>
 
         <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
