@@ -21,7 +21,7 @@ public partial class PagosVer : System.Web.UI.Page
 
 
 
-                DataTable dtbuscarid = conn.ObtenerDatoSicad("SELECT Cliente.IDCliente,Pagos.IDPago, Pagos.IDTramite, Pagos.fecha, Pagos.pago, Pagos.notas, Pagos.tipopago, Cliente.nombre, Cliente.apellidopaterno, Cliente.apellidomaterno, Tramites.IDAsunto, Tramites.costo, Tramites.fechainicio, Tramites.fechatermino, Asunto.asunto FROM Pagos INNER JOIN Tramites ON Pagos.IDTramite = Tramites.IDTramite INNER JOIN Cliente ON Tramites.IDCliente = Cliente.IDCliente INNER JOIN Asunto ON Tramites.IDAsunto = Asunto.IDAsunto WHERE Cliente.IDCliente ='10'");
+                DataTable dtbuscarid = conn.ObtenerDatoSicad("SELECT Cliente.IDCliente, Cliente.nombre, Cliente.apellidopaterno, Cliente.apellidomaterno, Tramites.IDAsunto, Tramites.costo, Tramites.fechainicio, Tramites.fechatermino, Asunto.asunto, Tramites.IDTramite FROM  Tramites INNER JOIN Cliente ON Tramites.IDCliente = Cliente.IDCliente INNER JOIN Asunto ON Tramites.IDAsunto = Asunto.IDAsunto WHERE Tramites.IDTramite='" + Request.QueryString["IDTramite"] + "'");
 
                 if (dtbuscarid.Rows.Count > 0)
                 {
