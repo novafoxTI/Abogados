@@ -742,33 +742,52 @@
             <div class="card-body">
                 
     <br /> 
-                  <div class="form-group row">
-            <label for="inputEmail3" style="text-align:right" class="col-sm-2 col-form-label">Cliente:</label>
+                                
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server"  type="text" Enabled="false" class="form-control" id="TxtCliente" placeholder="Ingresar Costo"/>
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtCliente" placeholder="Ingresar la fecha"/>
             </div>
         </div>
 
-                  <div class="form-group row">
-            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Asunto:</label>
+                        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Asunto:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtAsunto" placeholder="Ingresar Costo"/>
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtAsunto" placeholder="Ingresar la fecha"/>
             </div>
         </div>
 
-                              <div class="form-group row">
-            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Fecha de Inicio:</label>
+
+                                        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Inicio:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtFechaInicio" placeholder="Ingresar Costo"/>
-            </div>
-        </div>
-                                            <div class="form-group row">
-            <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Fecha de Término:</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server" type="text" Enabled="false" class="form-control" id="TxtFechaTermino" placeholder="Ingresar Costo"/>
+                <asp:TextBox runat="server" type="date" class="form-control" ReadOnly="true" id="TxtFechaInicio" placeholder="Ingresar la fecha"/>
             </div>
         </div>
 
+
+                                                   <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Término:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="date" class="form-control" ReadOnly="true" id="TxtFechaTermino" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                            <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Total a pagar:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtTotal" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                                         <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Debe:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtDebe" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
 
 
 <asp:Repeater runat="server" ID="DtgJuzgados">

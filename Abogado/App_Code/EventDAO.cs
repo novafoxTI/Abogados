@@ -17,7 +17,7 @@ using System.Data.SqlClient;
 public class EventDAO
 {
 	//change the connection string as per your database connection.
-    private static string connectionString = "Data Source = DESKTOP-KJDJCFV; initial Catalog = ReclutamientoLennox; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework";
+    private static string connectionString = "Data Source = DESKTOP-952N6LL; initial Catalog = ReclutamientoLennox; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework";
 
 	//this method retrieves all events within range start-end
     public static List<CalendarEvent> getEvents(DateTime start, DateTime end)

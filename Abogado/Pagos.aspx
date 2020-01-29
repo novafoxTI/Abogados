@@ -9,10 +9,11 @@
   <title>AdminLTE 3 | General Form Elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
+
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
@@ -731,9 +732,65 @@
               <!-- /.card-header -->
               <!-- form start -->
        <form class="form-horizontal"  id="form1" runat="server" autocomplete="off">
-        
-                  
-        <div class="card-body">
+            <div class="card-body">
+                
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtCliente" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+                        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Asunto:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtAsunto" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Inicio:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="date" class="form-control" ReadOnly="true" id="TxtFechaInicio" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                   <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Término:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="date" class="form-control" ReadOnly="true" id="TxtFechaTermino" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                            <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Total a pagar:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtTotal" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                                         <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Debe:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtDebe" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+      
+      
+
+
+         
+
+
+         
+
+    
 
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha:</label>
@@ -745,7 +802,7 @@
             <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Pago</label>
             <div class="col-sm-10">
-                <asp:TextBox runat="server" type="numero" class="form-control" id="TxtPago" placeholder="Ingresar el pago"/>
+                <asp:TextBox runat="server" type="number" class="form-control" id="TxtPago" placeholder="Ingresar el pago"/>
             </div>
             </div>
 
@@ -782,12 +839,15 @@
 
             <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnCancelarjuzgado_Click"  Text="Cancelar" />
            
-            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistajuzgados_Click"  Text="Lista Pagos" />
+            <asp:Button runat="server" class="btn btn-default float-left" OnClick="BtnRegresarlistaPagos_Click"  Text="Lista Pagos" />
 
         </div>
                 <!-- /.card-footer -->
         </form>
+              </div>
 
+         
+        </div>
 
             </div>
             <!-- /.card -->

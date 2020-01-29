@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class Clientesver : System.Web.UI.Page
 {
-  
     private CNX conn = new CNX();
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -37,7 +37,6 @@ public partial class Clientesver : System.Web.UI.Page
         {
 
             LinkButton btn = (LinkButton)(sender);
-
             conn.ObtenerDatoSicad("delete from Cliente where IDCliente = '" + btn.CommandArgument + "'");
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se eliminó exitosamente', '', 'success') </script>", false);
             DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
