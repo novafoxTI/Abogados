@@ -21,7 +21,7 @@ public class CNX
             try
             {
 
-                using (SqlConnection cnSql = new SqlConnection("Data Source = DESKTOP-952N6LL; initial Catalog = ABOGADOS; integrated security=true; MultipleActiveResultSets = True; App = EntityFramework"))
+                using (SqlConnection cnSql = new SqlConnection("Data Source = 192.168.0.5; initial Catalog = ABOGADOS; integrated security=true; MultipleActiveResultSets = True; App = EntityFramework"))
 
          
                 {

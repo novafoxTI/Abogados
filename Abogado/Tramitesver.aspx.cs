@@ -76,6 +76,15 @@ public partial class Tramitesver : System.Web.UI.Page
 
     }
 
+    
+         protected void btnbtnEvidencias_Click(object sender, EventArgs e)
+    {
+        LinkButton btn = (LinkButton)(sender);
+        Response.Redirect("Evidencias.aspx?IDTramite= " + btn.CommandArgument + "");
+
+
+    }
+
     protected void btnAgregarJuzgado_Click(object sender, EventArgs e)
     {
 

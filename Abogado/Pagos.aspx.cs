@@ -49,7 +49,8 @@ public partial class Pagos : System.Web.UI.Page
             TxtFechaInicio.Text =  Convert.ToDateTime(row["fechainicio"]).ToString("yyyy-MM-dd");
                 TxtFechaTermino.Text =  Convert.ToDateTime(row["fechatermino"]).ToString("yyyy-MM-dd");
                 TxtTotal.Text = row["Costo"].ToString();
-        }
+                
+            }
         else
         {
 

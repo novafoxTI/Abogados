@@ -1,23 +1,20 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Tramitesver.aspx.cs" Inherits="Tramitesver" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Evidencias.aspx.cs" Inherits="Evidencias" %>
 
 <!DOCTYPE html>
-<html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Trámites</title>
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <title>AdminLTE 3 | General Form Elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
+
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -350,8 +347,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Forms
@@ -360,7 +357,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../forms/general.html" class="nav-link">
+                <a href="../forms/general.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Elements</p>
                 </a>
@@ -385,8 +382,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
                 Tables
@@ -401,7 +398,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link active">
+                <a href="../tables/data.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>DataTables</p>
                 </a>
@@ -708,12 +705,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Trámites pendientes</h1>
+            <h1>Evidencias</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Menu</a></li>
-              <li class="breadcrumb-item active">Catalogocliente</li>
+              <li class="breadcrumb-item active">Agregar Evidencias</li>
             </ol>
           </div>
         </div>
@@ -722,87 +719,133 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-12">
-          
-          <!-- /.card -->
-                 <form id="form1" runat="server" autocomplete="off">
-          <div class="card">
-
-               
-              <asp:Button runat="server" class="btn btn-block btn-success btn-lg" Text="Agregar Trámite" ID="btnAgregarJuzgado" OnClick="btnAgregarJuzgado_Click" />
-
-            <div class="card-header">
-              <h3 class="card-title">Listado de Clientes</h3>
-                    
-            </div>
-            <!-- /.card-header -->
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- /.card -->
+            <!-- Horizontal Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Agregar Evidencias</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+       <form class="form-horizontal"  id="form1" runat="server" autocomplete="off">
             <div class="card-body">
                 
-               
-
-<asp:Repeater runat="server" ID="DtgTramites">
-        <HeaderTemplate>
-            <table id="example1" class=" table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th style="width: 5%">Fecha inicio</th>
-                        <th style="width: 5%">Fecha termino</th>
-                        <th style="width: 5%">Nombre</th>
-                        <th style="width: 5%">Asunto</th>
-                        <th style="width: 5%">Costo</th>
-                        <th style="width: 5%">Tipo de Pago</th>
-                         <th style="width: 5%">Estatus</th>
-                        <th style="width: 5%"></th>
-                         <th style="width: 5%"></th>
-                        <th style="width: 5%"></th>
-                        <th style="width: 5%"></th>
-                    </tr>
-                </thead>
-                <tbody id="cuerpo">
-        </HeaderTemplate>
-        <ItemTemplate>
-            <tr data-id="<%# Eval("IDTramite")%>">
-                <td><%# Eval("fechainicio")%></td>
-                <td><%# Eval("fechatermino")%></td>
-                <td><%# Eval("nombre")%></td>
-                <td><%# Eval("asunto")%></td>
-                <td><%# Eval("costo")%></td>
-                <td><%# Eval("tipopago")%></td>
-                <td><%# Eval("estatus")%></td>
-          
-                 <td>
-                <asp:LinkButton runat="server" ID="btnEditarJuzgado"  OnClick="btnEditarJuzgado_Click" CommandArgument='<%# Eval("IDTramite") %>'>Editar</asp:LinkButton>
-                </td>
-                <td>
-                    <asp:LinkButton runat="server" ID="btnPagos"  OnClick="btnPagos_Click" CommandArgument='<%# Eval("IDTramite") %>'>Pagos</asp:LinkButton>
-                
-                </td>
-                <td>
-                <asp:LinkButton runat="server" ID="btnEvidencias"  OnClick="btnbtnEvidencias_Click"   CssClass="btn-file" CommandArgument ='<%# Eval("IDTramite") %>'>Evidencias</asp:LinkButton>
-                </td>
-                  <td>
-                <asp:LinkButton runat="server" ID="btnEliminarJuzgado"  OnClick="btnEliminarTramite_Click" CommandArgument='<%# Eval("IDTramite") %>'>Eliminar</asp:LinkButton>
-                </td>
-
-            </tr>
-        </ItemTemplate>
-        <FooterTemplate>
-            </tbody>
-</table>
-        </FooterTemplate>
-    </asp:Repeater>
-
-
-         </form>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtCliente" placeholder="Ingresar la fecha"/>
             </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+
+                        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Asunto:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtAsunto" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Inicio:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="date" class="form-control" ReadOnly="true" id="TxtFechaInicio" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                   <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha de Término:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="date" class="form-control" ReadOnly="true" id="TxtFechaTermino" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                            <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Total a pagar:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtTotal" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+
+                                                                         <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Debe:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="text" class="form-control" ReadOnly="true" id="TxtDebe" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha:</label>
+            <div class="col-sm-10">
+                <asp:TextBox runat="server" type="date" class="form-control" id="TxtFecha" placeholder="Ingresar la fecha"/>
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Evidencia:</label>
+            <div class="col-sm-10">
+                
+                <asp:FileUpload ID="FileUpload1" runat="server" /><br />
+                <asp:RegularExpressionValidator 
+                             id="RegularExpressionValidator1" runat="server" 
+                             ErrorMessage="Solo archivos de imagen, PDF, WORD y EXCEL son admitidos" 
+                             color="red"
+                             ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.png|.pdf|.docx|.doc|.xls|.xlsx)$"  
+                             ControlToValidate="FileUpload1">
+                        </asp:RegularExpressionValidator>
+                
+            </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Notas:</label>
+                <div class="col-sm-10">
+                    <textarea type="text" runat="server" name="TxtNotas" id="TxtNotas" placeholder="Ingresar comentarios" class="form-control" visible="True" />
+                </div>
+            </div>
+
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+            </div>
+        </div>
+        </div>
+                <!-- /.card-body -->
+        <div class="card-footer">
+          
+            <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar"  />
+
+            <asp:Button runat="server" class="btn btn-default float-right"   Text="Cancelar" />
+           
+            
+
+        </div>
+                <!-- /.card-footer -->
+        </form>
+              </div>
+
+         
+        </div>
+
+            </div>
+            <!-- /.card -->
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+           
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
@@ -827,50 +870,16 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
+<script type="text/javascript">
+$(document).ready(function () {
+  bsCustomFileInput.init();
+});
 </script>
-
-
-    <script>
-    $(function () {
-        bindDataTable(); // bind data table on first page load
-        // bind data table on every UpdatePanel refresh   
-        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(bindDataTable);
-    });
-
-    function bindDataTable() {
-
-        var table = $('#example1').DataTable({ retrieve: true, paging: false });
-
-        table.destroy();
-
-        $('#example1').DataTable({
-            "language": {
-                "url": "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            }
-        });
-    }
-</script>
-
-
 </body>
 </html>
