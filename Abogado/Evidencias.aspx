@@ -320,12 +320,12 @@
             </div>
         </div>
 
-        <div class="form-group row">
+        <%--<div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Fecha:</label>
             <div class="col-sm-10">
                 <asp:TextBox runat="server" type="date" class="form-control" id="TxtFecha" placeholder="Ingresar la fecha"/>
             </div>
-        </div>
+        </div>--%>
 
             <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Evidencia:</label>
@@ -359,7 +359,7 @@
                 <!-- /.card-body -->
         <div class="card-footer">
           
-            <asp:Button runat="server" class="btn btn-info  float-right" Text="Agregar"  />
+            <asp:Button runat="server" class="btn btn-info  float-right" id="btnAgregarEvidencia" Text="Agregar"  OnClick="btnAgregarEvidencia_Click"  />
 
             <asp:Button runat="server" class="btn btn-default float-right"   Text="Cancelar" />
            
@@ -367,6 +367,49 @@
 
         </div>
                 <!-- /.card-footer -->
+
+
+           <asp:Repeater runat="server" ID="DtgArchivos">
+        <HeaderTemplate>
+            <table id="example1" class=" table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 5%">Fecha de  Registro</th>
+                        <th style="width: 5%">Nombre de Archivo</th>
+                        
+                        <th style="width: 5%"></th>
+                         <th style="width: 5%"></th>
+                        <th style="width: 5%"></th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="cuerpo">
+        </HeaderTemplate>
+        <ItemTemplate>
+            <tr data-id="<%# Eval("idarchivoevidencia")%>">
+                <td><%# Eval("fecha")%></td>
+                <td><%# Eval("nombrearchivo")%></td>
+                
+          
+                 <td>
+               <td><asp:LinkButton ID="DownloadFile" runat="server" Text="Descargar" OnClick="DownloadFile"  CommandArgument='<%# Eval("idarchivoevidencia") %>'></asp:LinkButton></td>
+                </td>
+                <td>
+                    <%--<asp:LinkButton runat="server" ID="btnPagos"   CommandArgument='<%# Eval("idarchivoevidencia") %>'>Pagos</asp:LinkButton>
+                --%>
+                </td>
+                
+                  <td>
+               <%-- <asp:LinkButton runat="server" ID="btnEliminarJuzgado"   CommandArgument='<%# Eval("idarchivoevidencia") %>'>Eliminar</asp:LinkButton>
+               --%> </td>
+
+            </tr>
+        </ItemTemplate>
+        <FooterTemplate>
+            </tbody>
+</table>
+        </FooterTemplate>
+    </asp:Repeater>
         </form>
               </div>
 
@@ -375,6 +418,14 @@
 
             </div>
             <!-- /.card -->
+          <!-- /.card-header -->
+            <div class="card-body">
+                
+               
+
+
+
+                  
 
           </div>
           <!--/.col (left) -->

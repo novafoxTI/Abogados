@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 using System.Net.Mail;
+using System.Configuration;
 
 /// <summary>
 /// Descripción breve de CNX
@@ -13,7 +14,6 @@ public class CNX
 {
     SqlConnection Conn;
     public  CNX() {
-        Conn = new SqlConnection(@"Data Source=DESKTOP-952N6LL; Initial Catalog=ABOGADOS; User id=admon;Password=123456");
         
     }
         public DataTable ObtenerDatoSicad(string comando)
@@ -21,7 +21,7 @@ public class CNX
             try
             {
 
-                using (SqlConnection cnSql = new SqlConnection("Data Source = DESKTOP-952N6LL; initial Catalog = ABOGADOS; integrated security=true; MultipleActiveResultSets = True; App = EntityFramework"))
+            using (SqlConnection cnSql = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString()))
 
          
                 {

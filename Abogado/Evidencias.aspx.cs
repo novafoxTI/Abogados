@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
+using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
+using System.IO;
 
 public partial class Evidencias : System.Web.UI.Page
 {
@@ -14,15 +17,20 @@ public partial class Evidencias : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            try
+            {
 
-            DataTable dtbuscarid = conn.ObtenerDatoSicad("SELECT * From Pagos WHERE IDPago ='" + Request.QueryString["IDPago"] + "'");
+                DtgArchivos.DataSource = conn.ObtenerDatoSicad("select * from archivosevidencia");
+                DtgArchivos.DataBind();
+
+                DataTable dtbuscarid = conn.ObtenerDatoSicad("SELECT * From Pagos WHERE IDPago ='" + Request.QueryString["IDPago"] + "'");
 
             if (dtbuscarid.Rows.Count > 0)
             {
 
                 editar = "Editar";
                 DataRow row = dtbuscarid.Rows[0];
-                TxtFecha.Text = Convert.ToDateTime(row["fecha"]).ToString("yyyy-MM-dd");
+                //TxtFecha.Text = Convert.ToDateTime(row["fecha"]).ToString("yyyy-MM-dd");
                 
                 TxtNotas.Value = row["notas"].ToString();
                 
@@ -78,7 +86,150 @@ public partial class Evidencias : System.Web.UI.Page
 
             }
 
+
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write(ex.Message);
+            }
         }
 
     }
+
+    protected void btnAgregarEvidencia_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            int idtramit = int.Parse(Request.QueryString["idtramite"]);
+
+
+            if (FileUpload1.HasFile)
+                {
+
+                Guardar(idtramit, FileUpload1.FileName);
+
+                DataTable dtarchivos = conn.ObtenerDatoSicad("select top 1 * from archivosevidencia where idtramite = '" + idtramit + "' order by fecha desc");
+                DataRow row = dtarchivos.Rows[0];
+                int idarchivo = int.Parse(row["Idarchivoevidencia"].ToString());
+
+
+                String nombre = Path.GetExtension(FileUpload1.PostedFile.FileName);
+
+                string ruta1 = Server.MapPath("\\evidenciatramites\\");
+
+                if (!Directory.Exists(ruta1))
+                {
+                    Directory.CreateDirectory(ruta1);
+                }
+                   
+                if (FileUpload1.HasFile)
+                {
+                    String ruta = Server.MapPath("\\evidenciatramites\\" + idtramit + "-" + idarchivo + nombre + "");
+                    FileUpload1.SaveAs(ruta);
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Se guardó exitosamente', 'success') </script>", false);
+
+
+                }
+
+                String renombrado = idtramit + "-" + idarchivo + nombre;
+
+                conn.ObtenerDatoSicad("update archivosevidencia set renombrado = '" + renombrado + "' where  Idarchivoevidencia= '" + idarchivo + "'");
+
+                DtgArchivos.DataSource = conn.ObtenerDatoSicad("select * from archivosevidencia");
+                DtgArchivos.DataBind();
+
+            }
+            else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Debe seleccionar un archivo', 'warning') </script>", false);
+                    return;
+                }
+        }
+        catch (Exception ex)
+        {
+
+            Response.Write(ex.Message);
+        }
+    }
+
+
+    public void Guardar(int idtramite, string nombrearchivo)
+    {
+
+        // Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("default").ToString())
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString())) 
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
+            string query = "INSERT INTO archivosevidencia (idtramite,fecha,nombrearchivo) VALUES (@idtramite,getDate(),@name)";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@idtramite", idtramite);
+            cmd.Parameters.AddWithValue("@name", nombrearchivo);
+            // cmd.Parameters.AddWithValue("@renombrado", renombrado)
+            // cmd.Parameters.AddWithValue("@length", length)
+
+            // Dim archParam As SqlParameter = cmd.Parameters.Add("@archivo", System.Data.SqlDbType.VarBinary)
+            // archParam.Value = Archivo
+
+            cmd.ExecuteNonQuery();
+
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+        }
+    }
+
+
+
+    protected void DownloadFile(object sender, EventArgs e)
+    {
+        
+        LinkButton btn = (LinkButton)(sender);
+        // Dim bytes As Byte()
+        string Renombrado;
+        string nombreoriginal;
+        string ruta;
+
+        using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString()))
+        {
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "select * from archivosevidencia where  idarchivoevidencia=@Id";
+                cmd.Parameters.AddWithValue("@Id", btn.CommandArgument);
+                cmd.Connection = con;
+                con.Open();
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    sdr.Read();
+                    // bytes = DirectCast(sdr("archivo"), Byte())
+                    // contentType = sdr("ContentType").ToString()
+                    Renombrado = sdr["renombrado"].ToString();
+                    nombreoriginal = sdr["nombrearchivo"].ToString();
+                }
+
+                ruta = Server.MapPath(@"\\evidenciatramites\\" + Renombrado);
+
+                con.Close();
+            }
+        }
+
+        // Descargar el archivo
+        Response.Clear();
+        Response.Buffer = true;
+        Response.Charset = "";
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        // Response.ContentType = contentType
+        Response.AppendHeader("Content-Disposition", "attachment; filename=" + nombreoriginal);
+        // Response.BinaryWrite(bytes)
+        Response.TransmitFile(ruta);
+        Response.Flush();
+        Response.End();
+    }
+
+
 }
+
