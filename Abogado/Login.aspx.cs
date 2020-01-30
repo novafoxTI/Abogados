@@ -22,10 +22,10 @@ public partial class Login : System.Web.UI.Page
 
         if (buscarU.Rows.Count > 0)
         {
-            Response.Redirect("Clientes.aspx");
+            Response.Redirect("./Menu");
         }
         else {
-             Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Oops', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
+             Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Error', 'Usuario o Contraseña incorrecta!', 'error') </script>", false);
             usuario.Value = "";
             pass.Value = "";
         }

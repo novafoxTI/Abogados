@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login</title>
+  <title>Lawyer | System 1.0</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
@@ -27,15 +27,20 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  
+    <div class="login-logo">
+    <a href="../../index2.html"><b>Lawyer</b>System</a>
+  </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Ingresar usuario y contraseña</p>
 
       <form runat="server" autocomplete="off">
+
+  
+
         <div class="input-group mb-3">
-          <input type="text"  id="usuario" runat="server" placeholder="Ingresar Usuario">
+          <input type="text"  id="usuario"  class="form-control" runat="server" placeholder="Ingresar Usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -43,7 +48,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" id="pass"  runat="server" placeholder="Ingresa la contraseña">
+          <input type="password" id="pass"  runat="server"  class="form-control" placeholder="Ingresa la contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

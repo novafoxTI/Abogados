@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Pagos</title>
+  <title>Lawyer | System 1.0</title>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Tell the browser to be responsive to screen width -->
