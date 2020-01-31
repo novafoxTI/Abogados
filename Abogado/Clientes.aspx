@@ -193,6 +193,10 @@
 
 
        <form class="form-horizontal" runat="server" id="form1" autocomplete="off">
+
+             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel UpdateMode="Conditional"  ID="UpdatePanel1"  runat="server">
+            <ContentTemplate>
         <div class="card-body">
         <div class="form-group row">
             <label for="inputEmail3" style="text-align:right"  class="col-sm-2 col-form-label">Nombre:</label>
@@ -216,7 +220,7 @@
         </div>
 
         <div class="form-group row">
-            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label"><a href="https://www.gob.mx/curp/">Curp</a></label>
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label"><a href="https://www.gob.mx/curp/" target="_blank">Curp</a></label>
             <div class="col-sm-10">
                 <asp:TextBox runat="server" maxlength="18"  type="text" class="form-control" id="TxtCurp" placeholder="Ingresar CURP"/>
             </div>
@@ -244,32 +248,41 @@
             </div>
         </div>
 
+               <div class="form-group row">
+            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Codigo Postal:</label>
+            <div class="col-sm-10">
+                 <asp:TextBox runat="server" maxlength="5" type="number" OnTextChanged="BuscarColonia" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal"/>
+         </div>
+        </div>
+
+
         <div class="form-group row">
             <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Colonia:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" maxlength="20" type="text" class="form-control" id="TxtColonia" placeholder="Ingresar colonia"/>
+                <asp:DropDownList ID="TxtColonia" class="input-form-edit"  CssClass="form-control" Font-Names="tipo" runat="server" AppendDataBoundItems="true">
+                   <asp:ListItem Value="-1">-Selecciona una colonia-</asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Codigo Postal:</label>
-            <div class="col-sm-10">
-                 <asp:TextBox runat="server" maxlength="5" type="number" class="form-control" id="TxtCP" placeholder="Ingresar codigo postal"/>
-            </div>
-        </div>
+     
 
         <div class="form-group row">
             <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Ciudad:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" maxlength="30" type="text" class="form-control" id="TxtCiudad" placeholder="Ingresar ciudad"/>
+                <asp:DropDownList ID="TxtCiudad" class="input-form-edit"  AutoPostBack="true"  OnSelectedIndexChanged="BuscarMunicipio" CssClass="form-control" Font-Names="tipo" runat="server" AppendDataBoundItems="true">
+                   <asp:ListItem Value="-1">-Selecciona un ciudad-</asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="inputPassword3" style="text-align:right"  class="col-sm-2 col-form-label">Municipio:</label>
             <div class="col-sm-10">
-                 <asp:TextBox runat="server" maxlength="20" type="text" class="form-control" id="TxtMunicipio" placeholder="Ingresar municipio"/>
-            </div>
+                  <asp:DropDownList ID="TxtMunicipio" class="input-form-edit"  CssClass="form-control" Font-Names="tipo" runat="server" AppendDataBoundItems="true">
+                  <asp:ListItem Value="-1">-Selecciona un municipio-</asp:ListItem>
+                      </asp:DropDownList>
+                        </div>
         </div>
 
         <div class="form-group row">
@@ -301,6 +314,10 @@
             <asp:Button runat="server" class="btn btn-default float-right" OnClick="BtnRegresarlistaClientes_Click"  Text="Lista Clientes" />
 
         </div>
+                         </ContentTemplate>
+            <Triggers>
+            </Triggers>
+        </asp:UpdatePanel>
 
         </form>
             </div>

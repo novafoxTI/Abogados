@@ -216,15 +216,15 @@
             <table id="example1" class=" table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th style="width: 5%">Nombre</th>
-                        <th style="width: 5%">Calle</th>
-                        <th style="width: 5%">Numero</th>
-                        <th style="width: 5%">Colonia</th>
-                        <th style="width: 5%">CP</th>
-                        <th style="width: 5%">Ciudad</th>
-                        <th style="width: 5%">Municipio</th>
-                        <th style="width: 5%"></th>
-                         <th style="width: 5%"></th>
+                        <th style="width: .9%">Nombre</th>
+                        <th style="width: 1%">Calle</th>
+                        <th style="width: 1%">Numero</th>
+                        <th style="width: 1%">Colonia</th>
+                        <th style="width: 1%">CP</th>
+                        <th style="width: 1%">Ciudad</th>
+                        <th style="width: 1%">Municipio</th>
+                        <th style="width: 1%"></th>
+                         <th style="width: 1%"></th>
                     </tr>
                 </thead>
                 <tbody id="cuerpo">

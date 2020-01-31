@@ -17,7 +17,7 @@ public partial class Clientesver : System.Web.UI.Page
             try
             {
 
-                DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select * from Cliente");
+                DtgJuzgados.DataSource = conn.ObtenerDatoSicad("select IDCliente,(nombre + ' ' + apellidopaterno + ' ' + apellidomaterno) AS nombre, curp, rfc, calle, numero, colonia, cp, municipio, ciudad, telefono, celular from Cliente");
                 DtgJuzgados.DataBind();
 
             }
