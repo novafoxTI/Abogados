@@ -263,7 +263,6 @@
                 <asp:RegularExpressionValidator 
                              id="RegularExpressionValidator1" runat="server" 
                              ErrorMessage="Solo archivos de imagen, PDF, WORD y EXCEL son admitidos" 
-                             color="red"
                              ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.png|.pdf|.docx|.doc|.xls|.xlsx)$"  
                              ControlToValidate="FileUpload1">
                         </asp:RegularExpressionValidator>
@@ -295,19 +294,19 @@
 
         </div>
                 <!-- /.card-footer -->
-
-
-           <asp:Repeater runat="server" ID="DtgArchivos">
+        <div class="card-body">
+            <div class="form-group row">
+           <div class="col-sm-12">
+                <asp:Repeater runat="server" ID="DtgArchivos">
         <HeaderTemplate>
             <table id="example1" class=" table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th style="width: 5%">Fecha de  Registro</th>
+                        <th style="width: 2%">Fecha de  Registro</th>
                         <th style="width: 5%">Nombre de Archivo</th>
-                        
-                        <th style="width: 5%"></th>
-                         <th style="width: 5%"></th>
-                        <th style="width: 5%"></th>
+                        <th style="width: 5%">Comentarios</th>
+                         <th style="width: 1%"></th>
+                        <th style="width: 1%"></th>
                         
                     </tr>
                 </thead>
@@ -317,45 +316,29 @@
             <tr data-id="<%# Eval("idarchivoevidencia")%>">
                 <td><%# Eval("fecha")%></td>
                 <td><%# Eval("nombrearchivo")%></td>
-                
-          
-                 <td>
-               <td><asp:LinkButton ID="DownloadFile" runat="server" Text="Descargar" OnClick="DownloadFile"  CommandArgument='<%# Eval("idarchivoevidencia") %>'></asp:LinkButton></td>
-                </td>
-                <td>
-                    <%--<asp:LinkButton runat="server" ID="btnPagos"   CommandArgument='<%# Eval("idarchivoevidencia") %>'>Pagos</asp:LinkButton>
-                --%>
-                </td>
-                
-                  <td>
-               <%-- <asp:LinkButton runat="server" ID="btnEliminarJuzgado"   CommandArgument='<%# Eval("idarchivoevidencia") %>'>Eliminar</asp:LinkButton>
-               --%> </td>
-
+                <td><%# Eval("comentario")%></td>
+                <td><asp:LinkButton ID="DownloadFile" runat="server" Text="Descargar" OnClick="DownloadFile"  CommandArgument='<%# Eval("idarchivoevidencia") %>'></asp:LinkButton></td></td>
+               <td> <asp:LinkButton runat="server" ID="btnEliminarArchivo" OnClick="btnEliminarArchivo"  CommandArgument='<%# Eval("idarchivoevidencia") %>'>Eliminar</asp:LinkButton> </td>
             </tr>
         </ItemTemplate>
         <FooterTemplate>
             </tbody>
 </table>
         </FooterTemplate>
-    </asp:Repeater>
-        </form>
+    </asp:Repeater>  
+               </div>
+                </div>
+           </div>
+         </form>
               </div>
-
-         
         </div>
 
             </div>
             <!-- /.card -->
           <!-- /.card-header -->
-            <div class="card-body">
-                
+           
                
 
-
-
-                  
-
-          </div>
           <!--/.col (left) -->
           <!-- right column -->
           <div class="col-md-6">

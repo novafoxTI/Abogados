@@ -103,11 +103,16 @@ public partial class Evidencias : System.Web.UI.Page
         {
             int idtramit = int.Parse(Request.QueryString["idtramite"]);
 
+            if (TxtNotas.Value.Trim()=="")
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Debe escribir una nota', 'warning') </script>", false);
+                return;
+            }
 
             if (FileUpload1.HasFile)
                 {
 
-                Guardar(idtramit, FileUpload1.FileName);
+                Guardar(idtramit, FileUpload1.FileName, TxtNotas.Value);
 
                 DataTable dtarchivos = conn.ObtenerDatoSicad("select top 1 * from archivosevidencia where idtramite = '" + idtramit + "' order by fecha desc");
                 DataRow row = dtarchivos.Rows[0];
@@ -130,7 +135,8 @@ public partial class Evidencias : System.Web.UI.Page
 
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Se guardó exitosamente', 'success') </script>", false);
 
-
+                    RegularExpressionValidator1.Text = "";
+                    TxtNotas.Value = "";
                 }
 
                 String renombrado = idtramit + "-" + idarchivo + nombre;
@@ -155,7 +161,7 @@ public partial class Evidencias : System.Web.UI.Page
     }
 
 
-    public void Guardar(int idtramite, string nombrearchivo)
+    public void Guardar(int idtramite, string nombrearchivo,string comentario)
     {
 
         // Using conn As New SqlConnection(ConfigurationManager.ConnectionStrings("default").ToString())
@@ -164,12 +170,13 @@ public partial class Evidencias : System.Web.UI.Page
             if (conn.State != ConnectionState.Open)
                 conn.Open();
 
-            string query = "INSERT INTO archivosevidencia (idtramite,fecha,nombrearchivo) VALUES (@idtramite,getDate(),@name)";
+            string query = "INSERT INTO archivosevidencia (idtramite,fecha,nombrearchivo,comentario) VALUES (@idtramite,getDate(),@name,@comentario)";
 
             SqlCommand cmd = new SqlCommand(query, conn);
 
             cmd.Parameters.AddWithValue("@idtramite", idtramite);
             cmd.Parameters.AddWithValue("@name", nombrearchivo);
+            cmd.Parameters.AddWithValue("@comentario", comentario);
             // cmd.Parameters.AddWithValue("@renombrado", renombrado)
             // cmd.Parameters.AddWithValue("@length", length)
 
@@ -194,6 +201,10 @@ public partial class Evidencias : System.Web.UI.Page
         string nombreoriginal;
         string ruta;
 
+        try
+        {
+
+       
         using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString()))
         {
             using (SqlCommand cmd = new SqlCommand())
@@ -228,6 +239,70 @@ public partial class Evidencias : System.Web.UI.Page
         Response.TransmitFile(ruta);
         Response.Flush();
         Response.End();
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Se descargo exitosamente', 'success') </script>", false);
+            
+        }
+        catch (Exception ex)
+        {
+
+            Response.Write(ex.Message);
+        }
+    }
+
+    protected void btnEliminarArchivo(object sender, EventArgs e)
+    {
+
+        LinkButton btn = (LinkButton)(sender);
+        // Dim bytes As Byte()
+        string Renombrado;
+        string nombreoriginal;
+        string ruta;
+
+        try
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString()))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "select * from archivosevidencia where  idarchivoevidencia=@Id";
+                    cmd.Parameters.AddWithValue("@Id", btn.CommandArgument);
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        sdr.Read();
+                        // bytes = DirectCast(sdr("archivo"), Byte())
+                        // contentType = sdr("ContentType").ToString()
+                        Renombrado = sdr["renombrado"].ToString();
+//                        nombreoriginal = sdr["nombrearchivo"].ToString();
+                    }
+
+                    ruta = Server.MapPath(@"\\evidenciatramites\\" + Renombrado);
+
+                    con.Close();
+                }
+            }
+
+            if (File.Exists(ruta))
+            {
+                File.Delete(ruta);
+                conn.ObtenerDatoSicad("delete from archivosevidencia where idarchivoevidencia= '" + btn.CommandArgument + "' ");
+                DtgArchivos.DataSource = conn.ObtenerDatoSicad("select * from archivosevidencia");
+                DtgArchivos.DataBind();
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Se eliminó exitosamente', 'success') </script>", false);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Ocurrió un error inesperado, intente de nuevo', 'warning') </script>", false);
+            }
+        }
+        catch (Exception ex)
+        {
+
+            Response.Write(ex.Message);
+        }
     }
 
 
