@@ -140,7 +140,7 @@ $(document).ready(function() {
         width: 470,
         buttons: {
             "Editar": function() {
-                //alert(currentUpdateEvent.title);
+                alert(currentUpdateEvent.title);
                 var eventToUpdate = {
                     id: currentUpdateEvent.id,
                     title: $("#eventName").val(),
@@ -149,7 +149,7 @@ $(document).ready(function() {
                 };
 
                 if (checkForSpecialChars(eventToUpdate.title) || checkForSpecialChars(eventToUpdate.description)) {
-                    alert("please enter characters: A to Z, a to z, 0 to 9, spaces");
+                    alert("por favor introduzca caracteres: A - Z, a - z, 0 - 9, o espacios");
                 }
                 else {
                     PageMethods.UpdateEvent(eventToUpdate, updateSuccess);
@@ -179,7 +179,7 @@ $(document).ready(function() {
     //add dialog
     $('#addDialog').dialog({
         autoOpen: false,
-        width: 470,
+        width: 700,
         buttons: {
             "Agregar": function() {
 
@@ -194,7 +194,7 @@ $(document).ready(function() {
                 console.log(eventToAdd);
              
                 if (checkForSpecialChars(eventToAdd.title) || checkForSpecialChars(eventToAdd.description)) {
-                    alert("please enter characters: A to Z, a to z, 0 to 9, spaces");
+                    alert("Por favor introduzca caracteres como: A - Z, a - z, 0 - 9, o espacios");
                 }
                 else {
                     //alert("sending " + eventToAdd.title);
@@ -237,7 +237,7 @@ $(document).ready(function() {
                     border: {
                         width: 1,
                         radius: 3,
-                        color: '#2779AA'
+                        color: '#6B7073'
 
                     },
                     padding: 10,

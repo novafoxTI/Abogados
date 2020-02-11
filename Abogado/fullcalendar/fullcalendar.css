@@ -221,7 +221,7 @@ table.fc-header {
 	
 .fc-cell-overlay { /* semi-transparent rectangle while dragging */
 	background: #9cf;
-	opacity: .2;
+	opacity: 10;
 	filter: alpha(opacity=20); /* for IE */
 	}
 	
@@ -238,11 +238,11 @@ table.fc-header {
 .fc-event,
 .fc-agenda .fc-event-time,
 .fc-event a {
-	border-style: solid; 
-	border-color: #36c;     /* default BORDER color (probably the same as background-color) */
-	background-color: #36c; /* default BACKGROUND color */
-	color: #fff;            /* default TEXT color */
-	}
+    border-style: solid;
+    border-color: #36c; /* default BORDER color (probably the same as background-color) */
+    background-color: #36c; /* default BACKGROUND color */
+    color: #3A790F; /* default TEXT color */
+}
 	
 	/* Use the 'className' CalEvent property and the following
 	 * example CSS to change event color on a per-event basis:

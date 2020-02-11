@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 /// <summary>
 /// EventDAO class is the main class which interacts with the database. SQL Server express edition
@@ -17,14 +18,14 @@ using System.Data.SqlClient;
 public class EventDAO
 {
 	//change the connection string as per your database connection.
-    private static string connectionString = "Data Source = DESKTOP-952N6LL; initial Catalog = ReclutamientoLennox; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework";
+    //private static string connectionString = "Data Source = DESKTOP-952N6LL; initial Catalog = ReclutamientoLennox; user = admin; password = 123456; MultipleActiveResultSets = True; App = EntityFramework";
 
 	//this method retrieves all events within range start-end
     public static List<CalendarEvent> getEvents(DateTime start, DateTime end)
     {
        
         List<CalendarEvent> events = new List<CalendarEvent>();
-        SqlConnection con = new SqlConnection(connectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString());
         SqlCommand cmd = new SqlCommand("SELECT event_id, description, title, event_start, event_end,place FROM event where event_start>=@start AND event_end<=@end", con);
         cmd.Parameters.AddWithValue("@start", start);
         cmd.Parameters.AddWithValue("@end", end);
@@ -57,7 +58,7 @@ public class EventDAO
 	//this method updates the event title and description
     public static void updateEvent(int id, String title, String description, String lugar)
     {
-        SqlConnection con = new SqlConnection(connectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString());
         SqlCommand cmd = new SqlCommand("UPDATE event SET title=@title, description=@description, place=@place WHERE event_id=@event_id", con);
         cmd.Parameters.AddWithValue("@title", title);
         cmd.Parameters.AddWithValue("@description", description);
@@ -76,7 +77,7 @@ public class EventDAO
 	//this method updates the event start and end time
     public static void updateEventTime(int id, DateTime start, DateTime end)
     {
-        SqlConnection con = new SqlConnection(connectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString());
         SqlCommand cmd = new SqlCommand("UPDATE event SET event_start=@event_start, event_end=@event_end WHERE event_id=@event_id", con);
         cmd.Parameters.AddWithValue("@event_start", start);
         cmd.Parameters.AddWithValue("@event_end", end);
@@ -91,7 +92,7 @@ public class EventDAO
 	//this mehtod deletes event with the id passed in.
     public static void deleteEvent(int id)
     {
-        SqlConnection con = new SqlConnection(connectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString());
         SqlCommand cmd = new SqlCommand("DELETE FROM event WHERE (event_id = @event_id)", con);
         cmd.Parameters.AddWithValue("@event_id", id);
         using (con)
@@ -107,7 +108,7 @@ public class EventDAO
         //add event to the database and return the primary key of the added event row
 
         //insert
-        SqlConnection con = new SqlConnection(connectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cnx"].ToString());
         SqlCommand cmd = new SqlCommand("INSERT INTO event(title, description, event_start, event_end, place) VALUES(@title, @description, @event_start, @event_end, @place)", con);
         cmd.Parameters.AddWithValue("@title", cevent.title);
         cmd.Parameters.AddWithValue("@description", cevent.description);

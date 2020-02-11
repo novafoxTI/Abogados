@@ -146,7 +146,7 @@
                     Fin:</td>
                 <td class="alignLeft">
                    
-                     <input id="addEventEndDate" type="datetime-local" name="addEventEndDate" d />
+                     <input id="addEventEndDate" type="datetime-local" name="addEventEndDate" />
 
             </tr>
         </table>

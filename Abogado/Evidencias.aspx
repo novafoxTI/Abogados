@@ -19,6 +19,10 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -299,7 +303,7 @@
            <div class="col-sm-12">
                 <asp:Repeater runat="server" ID="DtgArchivos">
         <HeaderTemplate>
-            <table id="example1" class=" table table-bordered table-striped">
+            <table id="tablaarchivos" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th style="width: 2%">Fecha de  Registro</th>
@@ -372,6 +376,9 @@
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- bs-custom-file-input -->
 <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
@@ -382,6 +389,43 @@
 $(document).ready(function () {
   bsCustomFileInput.init();
 });
+</script>
+
+    
+    <script>
+        $(function () {
+            $("#tablaarchivos").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+        });
+</script>
+
+
+    <script>
+        $(function () {
+            bindDataTable(); // bind data table on first page load
+            // bind data table on every UpdatePanel refresh   
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(bindDataTable);
+        });
+
+        function bindDataTable() {
+
+            var table = $('#tablaarchivos').DataTable({ retrieve: true, paging: false });
+
+            table.destroy();
+
+            $('#tablaarchivos').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+            });
+        }
 </script>
 </body>
 </html>
