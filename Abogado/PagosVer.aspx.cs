@@ -32,7 +32,7 @@ public partial class PagosVer : System.Web.UI.Page
 
                 }
 
-                DtgJuzgados.DataSource = conn.ObtenerDatoSicad("SELECT Pagos.IDPago, Pagos.IDTramite, Pagos.fecha, Pagos.pago, Pagos.notas, Pagos.tipopago, Cliente.nombre, Cliente.apellidopaterno, Cliente.apellidomaterno, Tramites.IDAsunto, Tramites.costo, Tramites.fechainicio, Tramites.fechatermino FROM  Pagos INNER JOIN Tramites ON Pagos.IDTramite = Tramites.IDTramite INNER JOIN Cliente ON Tramites.IDCliente = Cliente.IDCliente where  Pagos.IDTramite='" + Request.QueryString["IDTramite"] + "'");
+                DtgJuzgados.DataSource = conn.ObtenerDatoSicad("SELECT Pagos.Folio,Pagos.IDPago, Pagos.IDTramite, Pagos.fecha, Pagos.pago, Pagos.notas, Pagos.tipopago, Cliente.nombre, Cliente.apellidopaterno, Cliente.apellidomaterno, Tramites.IDAsunto, Tramites.costo, Tramites.fechainicio, Tramites.fechatermino FROM  Pagos INNER JOIN Tramites ON Pagos.IDTramite = Tramites.IDTramite INNER JOIN Cliente ON Tramites.IDCliente = Cliente.IDCliente where  Pagos.IDTramite='" + Request.QueryString["IDTramite"] + "'");
                 DtgJuzgados.DataBind();
             }
 
@@ -86,6 +86,19 @@ public partial class PagosVer : System.Web.UI.Page
         Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Se ha eliminado exitosamente', '', 'success') </script>", false);
 
 
+    }
+
+
+    protected void btnImprimirRecibo_Click(object sender, EventArgs e)
+    {
+
+        LinkButton btn = (LinkButton)(sender);
+
+        conn.ObtenerDatoSicad("delete from Pagos where IDPago = '" + btn.CommandArgument + "'");
+
+
+
+        Response.Redirect("Recibo.aspx?Folio=" + btn.CommandArgument + "");
     }
 
 

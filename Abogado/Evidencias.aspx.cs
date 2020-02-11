@@ -295,6 +295,9 @@ public partial class Evidencias : System.Web.UI.Page
             }
             else
             {
+                conn.ObtenerDatoSicad("delete from archivosevidencia where idarchivoevidencia= '" + btn.CommandArgument + "' ");
+                DtgArchivos.DataSource = conn.ObtenerDatoSicad("select * from archivosevidencia");
+                DtgArchivos.DataBind();
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Script", "<script language='JavaScript'> swal('Aviso!', 'Ocurrió un error inesperado, intente de nuevo', 'warning') </script>", false);
             }
         }

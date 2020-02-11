@@ -32,7 +32,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../Menu" class="nav-link">Inicio</a>
+        <a href="../MenuControl" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="http://gruponovait.com/" class="nav-link" target="_blank">Contacto</a>

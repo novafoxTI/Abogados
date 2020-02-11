@@ -172,7 +172,9 @@ public partial class Clientes : System.Web.UI.Page
         catch (Exception ex)
         {
 
-            Response.Write(ex.Message);
+            string error = String.Format("<script language='JavaScript'> swal('Aviso!!', 'Error: {0}', 'warning')</script>", ex.Message);
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "Script", error, false);
+            return;
         }
     }
          
